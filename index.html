@@ -15,7 +15,7 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
@@ -31,20 +31,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script>
+        function validateForm() {
+            let name = document.forms["Form"]["name"].value;
+            let phone = document.forms["Form"]["phone"].value;
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            } else if (phone != "") {
+                if (isNaN(phone)) {
+                    alert("Characters is not allowed");
+                    return false;
+                }
+                if (phone.length > 10) {
+                    alert("Phone number must be of 10 digits");
+                    return false;
+                }
+                if (phone.length < 10) {
+                    alert("Phone number must be of 10 digits");
+                    return false;
+                }
+                if (
+                    phone.charAt(0) == "0" ||
+                    phone.charAt(0) == "1" ||
+                    phone.charAt(0) == "2" ||
+                    phone.charAt(0) == "3"
+                ) {
+                    alert("Phone number must not start with 0");
+                    return false;
+                }
+            } else if (phone == "") {
+                alert("Phone number is mandatory");
+                return false;
+            }
+        }
+    </script>
 </head>
 
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
+            <div class="head-logo m-auto">
+                <img src="assets/img/logo.png" alt="" />
+            </div>
             <h1 class="logo me-auto">
-                <a href="index.html"><span>De</span>ep <span>Fi</span>nancial <span>Se</span>rvices</a
+                <a href="index.html"><span>D</span>eep <span>F</span>inancial <span>S</span>ervices</a
           >
         </h1>
-
-        <div class="head-logo m-auto">
-          <img src="assets/img/logo.png" alt="" />
-        </div>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -104,27 +138,31 @@
     <!-- Hero Section -->
     <section id="hero-banner" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
+            <div class="welcome alert alert-info alert-dismissible fade show" role="alert">
+                Welcome to the <strong>Deep Financials</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <div class="carousel-item active" data-bs-interval="8000">
                 <div class="overlay"></div>
                 <img src="assets/img/banner/1.jpg" class="d-block w-100" alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>
+                        Financial Planning Is an Art. Breakthrough Financial Solutions Are Our Craft
+                    </h1>
+                </div>
+                <div class="carousel-img d-none d-md-block">
+                    <img src="assets/img/banner/caption-img-1.png" alt="" />
+                </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="8000">
+                <div class="overlay"></div>
+                <img src="assets/img/banner/2.jpg" class="d-block w-100" alt="..." />
                 <div class="carousel-caption d-none d-md-block colour-blue">
                     <h1>Empowering You with Groundbreaking Investment Solutions</h1>
                 </div>
                 <div class="carousel-img d-none d-md-block colour-blue-img">
-                    <img src="assets/img/banner/caption-img-1.jpeg" alt="" />
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="8000">
-                <div class="overlay"></div>
-                <img src="assets/img/banner/2.jpg" class="d-block w-100" alt="..." />
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>
-                        Financial Planning Is Art. Breakthrough Financial Solutions Are Our Craft
-                    </h1>
-                </div>
-
-                <div class="carousel-img d-none d-md-block">
-                    <img src="assets/img/banner/caption-img-2.png" alt="" />
+                    <img src="assets/img/banner/caption-img-2.jpeg" alt="" />
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="8000">
@@ -224,7 +262,11 @@
             <h2>Our Services</h2>
           </div>
           <div class="row flex-wrap justify-content-center">
-            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/mutualfunds.jpg" alt="" />
                 <div class="image_overlay">
@@ -232,7 +274,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/insurance.jpg" alt="" />
                 <div class="image_overlay">
@@ -240,7 +286,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/ulips.jpg" alt="" />
                 <div class="image_overlay">
@@ -248,7 +298,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/bonds.jpg" alt="" />
                 <div class="image_overlay">
@@ -256,7 +310,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/tax.jpg" alt="" />
                 <div class="image_overlay">
@@ -264,7 +322,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/investments.jpg" alt="" />
                 <div class="image_overlay">
@@ -272,7 +334,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/epreparation.jpg" alt="" />
                 <div class="image_overlay">
@@ -280,7 +346,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/estate.jpg" alt="" />
                 <div class="image_overlay">
@@ -288,7 +358,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/practical_solution.jpg" alt="" />
                 <div class="image_overlay">
@@ -296,7 +370,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="col-md-4 col-lg-3 mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-box">
                 <img src="assets/img/portfolio/pension.jpg" alt="" />
                 <div class="image_overlay">
@@ -426,15 +504,17 @@
       <section id="enquiry_form">
         <div class="container" data-aos="fade-right">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-12">
               <div class="form-wrap form-img">
                 <img src="assets/img/form-img.png" alt="" />
               </div>
             </div>
-            <div class="col-md-6 ms-auto">
+            <div class="col-md-12 col-lg-6 col-12 ms-auto">
               <div class="form-wrap">
                 <form
-                  action=""
+                  name="Form"
+                  action="mail.php"
+                  onsubmit="return validateForm()"
                   autocomplete="off"
                   method="post"
                   class="row g-3"
@@ -448,7 +528,7 @@
                     <input
                       type="text"
                       class="form-control"
-                      name=""
+                      name="name"
                       id="name"
                       placeholder="Full Name"
                     />
@@ -459,7 +539,7 @@
                     <input
                       type="email"
                       class="form-control"
-                      name=""
+                      name="email"
                       id="email"
                       placeholder="Email Id"
                     />
@@ -473,7 +553,9 @@
                     <input
                       type="tel"
                       class="form-control"
-                      name=""
+                      name="phone"
+                      maxlength="10"
+                      minlength="10"
                       id="phone"
                       placeholder="Phone Number"
                     />
@@ -485,13 +567,13 @@
                       type="text"
                       class="form-control"
                       rows="4"
-                      name=""
+                      name="message"
                       id="msg"
                       placeholder="Your Message"
                     ></textarea>
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" name="submit" class="btn btn-primary">
                       Submit
                     </button>
                   </div>
@@ -753,7 +835,7 @@
               </ul>
             </div>
 
-            <div class="col-lg-4 col-md-2 footer-logo">
+            <div class="col-lg-4 col-md-6 footer-logo">
               <img src="./assets/img/logo.png" alt="" />
               <p>
                 <span>K</span>nown for Deep and Practical Financial Solutions
@@ -771,7 +853,12 @@
             <strong><span>Deep Financial Services</span></strong
             >. All Rights Reserved
           </div>
-          <div class="credits">Designed by <a href="">AnyaWebSolution</a></div>
+          <div class="credits">
+            Designed by
+            <a href="https://www.anyawebsolution.in/" target="_blank"
+              >AnyaWebSolution</a
+            >
+          </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
           <a
